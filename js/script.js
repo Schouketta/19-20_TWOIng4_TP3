@@ -46,19 +46,20 @@ function start() {
       //pour que ca change de jour
       let jour=0;
 
-      // On récupère l'information principal
+      /*// On récupère l'information principal
       const main = data.weather[0].main;
       const description = data.weather[0].description;
       const temp = data.main.temp;
       const icon = apiWeather.getHTMLElementFromIcon(data.weather[0].icon);
-
+      */
+     
       data.list.forEach((data, index) => {
         jour++;
         // Modifier le DOM
-        document.getElementById(`${jour}-forecast-main`).innerHTML = main;
-        document.getElementById(`${jour}-forecast-more-info`).innerHTML = description;
-        document.getElementById(`${jour}-icon-weather-container`).innerHTML = icon;
-        document.getElementById(`${jour}-forecast-temp`).innerHTML = `${temp}°C`;
+        document.getElementById(`${jour}-forecast-main`).innerHTML = data.weather[0].main;
+        document.getElementById(`${jour}-forecast-more-info`).innerHTML = data.weather[0].description;
+        document.getElementById(`${jour}-icon-weather-container`).innerHTML = apiWeather.getHTMLElementFromIcon(data.weather[0].icon);
+        document.getElementById(`${jour}-forecast-temp`).innerHTML = `${data.temp.day}°C`;
 
       });
 
